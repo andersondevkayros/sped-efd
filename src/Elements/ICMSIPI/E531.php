@@ -88,7 +88,7 @@ class E531 extends Element implements ElementInterface
     {
         parent::__construct(self::REG);
         $this->std = $this->standarize($std);
-        $this->postValidation();
+        // $this->postValidation();
     }
 
     public function postValidation()

@@ -37,7 +37,7 @@ class G140 extends Element implements ElementInterface
         ],
         'UNID' => [
             'type'     => 'string',
-            'regex'    => '^[0-9]{6}$',
+            'regex'    => '^.{1,6}$',
             'required' => true,
             'info'     => 'Unidade do item constante no documento fiscal de entrada',
             'format'   => ''

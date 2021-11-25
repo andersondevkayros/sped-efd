@@ -112,8 +112,9 @@ abstract class Element
      */
     protected function isFieldInError($input, $param, $fieldname, $element, $required)
     {
-        $type = $param->type;
-        $regex = $param->regex;
+        $type   = $param->type;
+        $regex  = $param->regex;
+        $info   = $param->info;
         if (empty($regex)) {
             return false;
         }
@@ -123,29 +124,29 @@ abstract class Element
         switch ($type) {
             case 'integer':
                 if (!is_numeric($input)) {
-                    return "[$this->reg] $element campo: $fieldname deve ser um valor numérico inteiro.";
+                    return "Bloco [$this->reg] $element campo: $fieldname deve ser um valor numérico inteiro.";
                 }
                 break;
             case 'numeric':
                 if (!is_numeric($input)) {
-                    return "[$this->reg] $element campo: $fieldname deve ser um numero.";
+                    return "Bloco [$this->reg] $element campo: $fieldname deve ser um numero.";
                 }
                 break;
             case 'string':
                 if (!is_string($input)) {
-                    return "[$this->reg] $element campo: $fieldname deve ser uma string.";
+                    return "Bloco [$this->reg] $element campo: $fieldname deve ser uma string.";
                 }
                 break;
         }
         $input = (string) $input;
         if ($regex === 'email') {
             if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
-                return "[$this->reg] $element campo: $fieldname Esse email [$input] está incorreto.";
+                return "Bloco [$this->reg] $element campo: $fieldname Esse email [$input] está incorreto.";
             }
             return false;
         }
-        if (!preg_match("/$regex/", $input)) {
-            return "[$this->reg] $element campo: $fieldname valor incorreto [$input]. (validação: $regex)";
+        if (!preg_match("/$regex/", $input) && $input != '') {
+            return "Bloco [$this->reg] - Campo: [$fieldname] com valor [$input] incorreto. <br> $info";
         }
         return false;
     }

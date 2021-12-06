@@ -123,12 +123,12 @@ abstract class Element
         }
         switch ($type) {
             case 'integer':
-                if (!is_numeric($input)) {
+                if (!is_numeric($input) && $input != '') {
                     return "Bloco [$this->reg] $element campo: $fieldname deve ser um valor numérico inteiro.";
                 }
                 break;
             case 'numeric':
-                if (!is_numeric($input)) {
+                if (!is_numeric($input) && $input != '') {
                     return "Bloco [$this->reg] $element campo: $fieldname deve ser um numero.";
                 }
                 break;

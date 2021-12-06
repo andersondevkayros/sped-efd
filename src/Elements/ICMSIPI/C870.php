@@ -41,7 +41,7 @@ class C870 extends Element implements ElementInterface
         ],
         'CST_ICMS' => [
             'type' => 'numeric',
-            'regex' => '^(\d{1,3})$',
+            'regex' => '^(\d{1,4})$',
             'required' => true,
             'info' => 'Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1',
             'format' => ''

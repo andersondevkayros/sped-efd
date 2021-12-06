@@ -24,7 +24,7 @@ class H020 extends Element implements ElementInterface
     protected $parameters = [
         'CST_ICMS' => [
             'type'     => 'string',
-            'regex'    => '^[0-9]{3}$',
+            'regex'    => '^[0-9]{4}$',
             'required' => true,
             'info'     => 'Código da Situação Tributária referente ao ICMS, '
             . 'conforme a Tabela indicada no item 4.3.1',

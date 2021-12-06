@@ -55,7 +55,7 @@ class C810 extends Element implements ElementInterface
         ],
         'CST_ICMS' => [
             'type' => 'string',
-            'regex' => '^[0-9]{3}$',
+            'regex' => '^[0-9]{4}$',
             'required' => true,
             'info' => 'Código da Situação Tributária',
             'format' => ''

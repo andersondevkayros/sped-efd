@@ -20,11 +20,7 @@ class C850 extends Element implements ElementInterface
     protected $parameters = [
         'CST_ICMS' => [
             'type' => 'numeric',
-<<<<<<< HEAD
             'regex' => '^(\d{1,4})$',
-=======
-            'regex' => '^(\d{3})$',
->>>>>>> 8e9f393730c06b8529b15f91e08f750589c398aa
             'required' => true,
             'info' => 'Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1',
             'format' => ''

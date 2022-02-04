@@ -64,7 +64,7 @@ abstract class Element
                 continue;
             }
             if ($stdParam->$key->required && $std->$key === null) {
-                $errors[] = "$key é requerido.";
+                // $errors[] = "$key é requerido.";
             }
         }
         $newstd = new \stdClass();
@@ -112,42 +112,42 @@ abstract class Element
      */
     protected function isFieldInError($input, $param, $fieldname, $element, $required)
     {
-        $type   = $param->type;
-        $regex  = $param->regex;
-        $info   = $param->info;
-        if (empty($regex)) {
-            return false;
-        }
-        if (($input === null || $input === '') && !$required) {
-            return false;
-        }
-        switch ($type) {
-            case 'integer':
-                if (!is_numeric($input) && $input != '') {
-                    return "Bloco [$this->reg] $element campo: $fieldname deve ser um valor numérico inteiro.";
-                }
-                break;
-            case 'numeric':
-                if (!is_numeric($input) && $input != '') {
-                    return "Bloco [$this->reg] $element campo: $fieldname deve ser um numero.";
-                }
-                break;
-            case 'string':
-                if (!is_string($input)) {
-                    return "Bloco [$this->reg] $element campo: $fieldname deve ser uma string.";
-                }
-                break;
-        }
-        $input = (string) $input;
-        if ($regex === 'email') {
-            if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
-                return "Bloco [$this->reg] $element campo: $fieldname Esse email [$input] está incorreto.";
-            }
-            return false;
-        }
-        if (!preg_match("/$regex/", $input) && $input != '') {
-            return "Bloco [$this->reg] - Campo: [$fieldname] com valor [$input] incorreto. <br> $info";
-        }
+        // $type   = $param->type;
+        // $regex  = $param->regex;
+        // $info   = $param->info;
+        // if (empty($regex)) {
+        //     return false;
+        // }
+        // if (($input === null || $input === '') && !$required) {
+        //     return false;
+        // }
+        // switch ($type) {
+        //     case 'integer':
+        //         if (!is_numeric($input) && $input != '') {
+        //             return "Bloco [$this->reg] $element campo: $fieldname deve ser um valor numérico inteiro.";
+        //         }
+        //         break;
+        //     case 'numeric':
+        //         if (!is_numeric($input) && $input != '') {
+        //             return "Bloco [$this->reg] $element campo: $fieldname deve ser um numero.";
+        //         }
+        //         break;
+        //     case 'string':
+        //         if (!is_string($input)) {
+        //             return "Bloco [$this->reg] $element campo: $fieldname deve ser uma string.";
+        //         }
+        //         break;
+        // }
+        // $input = (string) $input;
+        // if ($regex === 'email') {
+        //     if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
+        //         return "Bloco [$this->reg] $element campo: $fieldname Esse email [$input] está incorreto.";
+        //     }
+        //     return false;
+        // }
+        // if (!preg_match("/$regex/", $input) && $input != '') {
+        //     return "Bloco [$this->reg] - Campo: [$fieldname] com valor [$input] incorreto. <br> $info";
+        // }
         return false;
     }
 
@@ -196,8 +196,8 @@ abstract class Element
         $nint = strlen($p[0]); //integer digits
         $intdig = (int) $n[0];
         if ($nint > $intdig) {
-            throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
-            . "que o permitido [$format].");
+            // throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
+            // . "que o permitido [$format].");
         }
         if ($mdec !== false) {
             //is multi decimal
